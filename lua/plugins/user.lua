@@ -4,6 +4,20 @@ return {
     "mrjosh/helm-ls",
   },
   {
+    "tpope/vim-fugitive",
+    cmd = {
+      "Git",
+      "Gdiffsplit",
+      "Gvdiffsplit",
+      "Gread",
+      "Gwrite",
+      "Ggrep",
+      "GMove",
+      "GDelete",
+      "GBrowse",
+    },
+  },
+  {
     "kylechui/nvim-surround",
     version = "*",
     event = "VeryLazy",

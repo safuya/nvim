@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- Customize Mason
 
 ---@type LazySpec
@@ -8,21 +6,31 @@ return {
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     -- overrides `require("mason-tool-installer").setup(...)`
-    opts = {
-      -- Make sure to use the names found in `:Mason`
-      ensure_installed = {
-        -- install language servers
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed or {}, {
+        "bash-language-server",
+        "cmake-language-server",
+        "delve",
+        "dockerfile-language-server",
+        "eslint-lsp",
+        "flake8",
+        "gh-actions-language-server",
+        "gofumpt",
+        "goimports",
+        "golangci-lint",
+        "gopls",
+        "helm-ls",
+        "jedi-language-server",
+        "json-lsp",
         "lua-language-server",
-
-        -- install formatters
+        "markdown-oxide",
+        "prettierd",
         "stylua",
-
-        -- install debuggers
-        "debugpy",
-
-        -- install any other package
+        "terraform-ls",
         "tree-sitter-cli",
-      },
-    },
+        "vtsls",
+        "yaml-language-server",
+      })
+    end,
   },
 }

@@ -18,7 +18,7 @@ return {
     formatting = {
       -- control auto formatting on save
       format_on_save = {
-        enabled = true, -- enable or disable format on save globally
+        enabled = false, -- handled by conform.nvim
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
         },
@@ -37,11 +37,54 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      -- "pyright"
+      "dockerls",
+      "eslint",
+      "gopls",
+      "helm_ls",
+      "jsonls",
+      "lua_ls",
+      "terraformls",
+      "vtsls",
+      "yamlls",
     },
     -- customize language server configuration passed to `vim.lsp.config`
     -- client specific configuration can also go in `lsp/` in your configuration root (see `:h lsp-config`)
     config = {
+      dockerls = {},
+      eslint = {
+        root_dir = function(fname)
+          return require("lspconfig.util").root_pattern(
+            "eslint.config.js",
+            "eslint.config.mjs",
+            "eslint.config.cjs",
+            "eslint.config.ts",
+            "eslint.config.mts",
+            "eslint.config.cts",
+            ".eslintrc",
+            ".eslintrc.js",
+            ".eslintrc.cjs",
+            ".eslintrc.json",
+            "package.json"
+          )(fname)
+        end,
+        settings = {
+          workingDirectory = { mode = "auto" },
+        },
+      },
+      gopls = {
+        settings = {
+          gopls = {
+            analyses = {
+              unusedparams = true,
+            },
+            completeUnimported = true,
+            staticcheck = true,
+          },
+        },
+      },
+      helm_ls = {},
+      jsonls = {},
+      lua_ls = {},
       terraformls = {
         init_options = {
           indexing = {
@@ -62,6 +105,8 @@ return {
           },
         },
       },
+      vtsls = {},
+      yamlls = {},
     },
     -- customize how language servers are attached
     handlers = {

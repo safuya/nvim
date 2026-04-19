@@ -13,8 +13,19 @@ return {
       indent = true, -- enable/disable treesitter based indentation
       auto_install = true, -- enable/disable automatic installation of detected languages
       ensure_installed = {
+        "dockerfile",
+        "go",
+        "gomod",
+        "gosum",
+        "gowork",
+        "javascript",
+        "jsdoc",
+        "json",
         "lua",
+        "tsx",
+        "typescript",
         "vim",
+        "yaml",
         -- add more arguments for adding more treesitter parsers
       },
     },
