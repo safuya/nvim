@@ -6,7 +6,17 @@ return {
     local lint = require "lint"
 
     lint.linters_by_ft = {
+      dockerfile = { "hadolint" },
       go = { "golangcilint" },
+      yaml = { "yamllint" },
+    }
+
+    lint.linters.yamllint.args = {
+      "--format",
+      "parsable",
+      "-d",
+      "{extends: default}",
+      "-",
     }
 
     vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave" }, {

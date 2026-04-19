@@ -18,6 +18,16 @@ return {
     },
   },
   {
+    "sindrets/diffview.nvim",
+    cmd = {
+      "DiffviewOpen",
+      "DiffviewClose",
+      "DiffviewToggleFiles",
+      "DiffviewFocusFiles",
+      "DiffviewFileHistory",
+    },
+  },
+  {
     "kylechui/nvim-surround",
     version = "*",
     event = "VeryLazy",

@@ -19,6 +19,7 @@ return {
         "goimports",
         "golangci-lint",
         "gopls",
+        "hadolint",
         "helm-ls",
         "jedi-language-server",
         "json-lsp",
@@ -30,6 +31,7 @@ return {
         "tree-sitter-cli",
         "vtsls",
         "yaml-language-server",
+        "yamllint",
       })
     end,
   },

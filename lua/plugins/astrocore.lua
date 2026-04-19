@@ -22,19 +22,6 @@ return {
       virtual_text = true,
       underline = true,
     },
-    -- passed to `vim.filetype.add`
-    filetypes = {
-      -- see `:h vim.filetype.add` for usage
-      extension = {
-        foo = "fooscript",
-      },
-      filename = {
-        [".foorc"] = "fooscript",
-      },
-      pattern = {
-        [".*/etc/foo/.*"] = "fooscript",
-      },
-    },
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
@@ -70,6 +57,13 @@ return {
           end,
           desc = "Close buffer from tabline",
         },
+        ["<Leader>g"] = { desc = "Git" },
+        ["<Leader>gv"] = { "<Cmd>DiffviewOpen<CR>", desc = "Open diff view" },
+        ["<Leader>gV"] = { "<Cmd>DiffviewFileHistory %<CR>", desc = "File history" },
+        ["<Leader>x"] = { desc = "Validate" },
+        ["<Leader>xl"] = { function() require("lint").try_lint() end, desc = "Run linters" },
+        ["<Leader>xt"] = { "<Cmd>!terraform validate<CR>", desc = "Terraform validate" },
+        ["<Leader>xh"] = { "<Cmd>!helm lint %<CR>", desc = "Helm lint current file" },
 
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
