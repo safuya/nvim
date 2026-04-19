@@ -87,12 +87,6 @@ For everything else, check AstroNvim defaults with `:which-key`.
 - AstroCommunity Copilot integration
 - `opencode.nvim`
 
-## Markdown
-
-Markdown Treesitter is enabled again.
-
-If markdown-related crashes reappear, check recent local changes first before reintroducing a workaround.
-
 ## Mason-managed tools
 
 This config uses Mason to manage editor tooling where possible.
