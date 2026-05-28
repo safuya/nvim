@@ -56,6 +56,17 @@ Current linter choices:
 
 `yamllint` was chosen because it is configurable and can be tuned to team preferences rather than forcing one rigid YAML style.
 
+This config allows unindented block sequences under mappings to match team conventions, for example:
+
+```yaml
+something:
+- item1
+- item2
+- item3
+```
+
+If you change the Neovim `yamllint` config, reload Neovim (or reload the plugin config) so the updated linter arguments are picked up.
+
 ## Git workflow
 
 - `vim-fugitive` for core Git operations

@@ -15,7 +15,7 @@ return {
       "--format",
       "parsable",
       "-d",
-      "{extends: default}",
+      "{extends: default, rules: {indentation: {spaces: consistent, indent-sequences: whatever, check-multi-line-strings: false}}}",
       "-",
     }
 

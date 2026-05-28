@@ -13,6 +13,7 @@ return {
   opts = {
     format_on_save = function(bufnr)
       if vim.bo[bufnr].buftype ~= "" then return nil end
+      if vim.bo[bufnr].filetype:match "^yaml" then return nil end
       return {
         timeout_ms = 1000,
         lsp_format = "fallback",
@@ -26,7 +27,6 @@ return {
       lua = { "stylua" },
       typescript = { "prettierd" },
       typescriptreact = { "prettierd" },
-      yaml = { "prettierd" },
     },
   },
 }
