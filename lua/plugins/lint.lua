@@ -11,14 +11,6 @@ return {
       yaml = { "yamllint" },
     }
 
-    lint.linters.yamllint.args = {
-      "--format",
-      "parsable",
-      "-d",
-      "{extends: relaxed, rules: {indentation: {spaces: consistent, indent-sequences: whatever, check-multi-line-strings: false}}}",
-      "-",
-    }
-
     vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave" }, {
       group = vim.api.nvim_create_augroup("nvim_lint", { clear = true }),
       callback = function() lint.try_lint() end,
